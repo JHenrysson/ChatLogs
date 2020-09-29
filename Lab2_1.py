@@ -4,7 +4,15 @@ import sys
 def main():
 # saves the arguement to the variable
     filename =sys.argv[1]
-    read_file(filename)
+    list_of_tuples=read_file(filename)
+    user_input = input("Enter a name to search for: ")
+    # x is an item of the tuple
+    for x in list_of_tuples:
+        name_in_tuple = x[0]
+        if name_in_tuple == user_input:
+            print (name_in_tuple[1])
+
+
 # function reads the file and
 ## puts data in a list filled with tuples
 # tuples have the required format
@@ -17,14 +25,14 @@ def read_file(filename):
         if not name:
             end = True
         else:
-            list_tuples.append((name,log_file.readline()))
+            list_tuples.append((name.replace('\n',''),log_file.readline().replace('\n','')))
     log_file.close()
     return list_tuples
 
 
 
 def display_entry(name, message):
-    
+
 
     print(name, message)
 
