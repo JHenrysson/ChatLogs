@@ -6,7 +6,7 @@ def main():
     filename = sys.argv[1]
     list_of_tuples=read_file(filename)
     user_input = input("Enter a name to search for: ")
-    # tuple is an item of the tuple with name,message 
+    # tuple is an item of the tuple with name,message
     for tuple in list_of_tuples:
         name_in_tuple = tuple[0]
         if name_in_tuple == user_input:
