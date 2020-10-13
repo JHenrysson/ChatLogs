@@ -20,6 +20,7 @@ def read_file(filename):
     try:
         log_file = open(filename, 'r')
     except:
+        #if the file is not valid then this message will pop up
         print(f"Error: The file '{filename}' could not be found.")
         exit()
     list_tuples = []
@@ -33,7 +34,7 @@ def read_file(filename):
     log_file.close()
     return list_tuples
 
-
+# the function used to display both the name and message - returns a formatted value
 def display_entry(name, message):
     return f"[{name}] --> {message}"
 
