@@ -43,7 +43,15 @@ def filter_odd_or_even(numbers,odd):
 
 
 def reversed_bubble_sort(numbers):
-    print("lll")
+    #number of times it will loop through the list
+    for i in range(0, len(numbers) - 1):
+        # looping through list and switching list items based on value
+        for x in range(0, len(numbers) - 1):
+            if numbers[x] < numbers[x+1]:
+                # switches values 
+                numbers[x], numbers[x+1] = numbers[x+1], numbers[x]
+
+
 
 
 
@@ -52,8 +60,6 @@ def main():
     list_two = read_file(sys.argv[2])
     list_odd = filter_odd_or_even(list_one, False)
     list_even = filter_odd_or_even(list_two, True)
-    print(list_odd)
-    print(list_even)
     combined_lists = list_even + list_odd
     reversed_bubble_sort(combined_lists)
     print(combined_lists)
