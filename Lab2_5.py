@@ -1,8 +1,6 @@
 import sys
 
 
-# returns list
-
 def read_file(filename):
     try:
         log_file = open(filename, 'r')
@@ -17,8 +15,8 @@ def read_file(filename):
             end = True
         else:
             row_without_new_line = row.replace('\n', '')
-            numer_array = row_without_new_line.split(' ')
-            for number in numer_array:
+            number_array = row_without_new_line.split(' ')
+            for number in number_array:
                 list_of_numbers.append(int(number))
 
     log_file.close()
@@ -34,19 +32,18 @@ def filter_odd_or_even(numbers, odd):
     for x in numbers:
         # even numbers divided by 2 should not have a reminder
         number_even = x % 2 == 0
-        # filter odd numbers
+        # filter even numbers but adding odd (odd is sent in from main)
         if odd and not number_even:
             filter_list.append(x)
-        # filter even numbers
+        # filter odd numbers but adding even
         elif not odd and number_even:
             filter_list.append(x)
-
     return filter_list
 
 
 def reversed_bubble_sort(numbers):
     # number of times it will loop through the list
-    for i in range(0, len(numbers) - 1):
+    for i in range(0, len(numbers)):
         # looping through list and switching list items based on value
         for x in range(0, len(numbers) - 1):
             if numbers[x] < numbers[x + 1]:
@@ -55,6 +52,7 @@ def reversed_bubble_sort(numbers):
 
 
 def main():
+    # sys argv returns the CL argument 1st / 2nd
     list_one = read_file(sys.argv[1])
     list_two = read_file(sys.argv[2])
     list_odd = filter_odd_or_even(list_one, True)
@@ -62,7 +60,10 @@ def main():
     combined_lists = list_even + list_odd
     reversed_bubble_sort(combined_lists)
     print(combined_lists)
-
-
+    message = 'This is a short message'
+    print(message[17:20])
+    message = 'This is a short message'
+    part_of_message = message[1] + message[5]
+    print(part_of_message)
 if __name__ == '__main__':
     main()
