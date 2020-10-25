@@ -60,10 +60,5 @@ def main():
     combined_lists = list_even + list_odd
     reversed_bubble_sort(combined_lists)
     print(combined_lists)
-    message = 'This is a short message'
-    print(message[17:20])
-    message = 'This is a short message'
-    part_of_message = message[1] + message[5]
-    print(part_of_message)
 if __name__ == '__main__':
     main()
